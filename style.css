@@ -6,39 +6,48 @@
 }
 .card{
  display: inline-block;
- width: 100px;
- height: 100px;
+ width: 200px;
+ height: 200px;
  background-color: rgb(238, 238, 238);
  cursor: pointer;
 }
 .card:hover{
     box-shadow:inset 0px 0px 0px 1px black;
+    box-sizing: border-box;
 }
-.color-hidden{
-    background-color: rgb(238, 238, 238);
+
+.card.done{
+    cursor:default;
 }
-/* färg classer  */
+.card.done:hover{
+    cursor: default;
+    box-shadow: none;
+}
 .orange{
-    color: orange;
+    background-color: orange;
 }
 .red{
-    color: red;
+    background-color: red;
 }
 .cyan{
-    color:cyan;
+    background-color:cyan;
 }
 .yellow{
-    color: yellow;
+    background-color: yellow;
 }
 .blue{
-    color: blue;
+    background-color: blue;
 }
 .purple{
-    color: purple;
+    background-color: purple;
 }
 .green{
-    color: green;
+    background-color: green;
 }
 .pink{
-    color: pink;
+    background-color: pink;
+}
+
+.color-hidden{
+    background-color: rgb(238, 238, 238);
 }

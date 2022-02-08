@@ -1,5 +1,4 @@
 //datastrukturen
 
 
-
 // programlogik
