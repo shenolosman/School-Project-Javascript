@@ -1,2 +1,44 @@
 /* style codes
 */
+
+.row{
+    text-align: center;
+}
+.card{
+ display: inline-block;
+ width: 100px;
+ height: 100px;
+ background-color: rgb(238, 238, 238);
+ cursor: pointer;
+}
+.card:hover{
+    box-shadow:inset 0px 0px 0px 1px black;
+}
+.color-hidden{
+    background-color: rgb(238, 238, 238);
+}
+/* färg classer  */
+.orange{
+    color: orange;
+}
+.red{
+    color: red;
+}
+.cyan{
+    color:cyan;
+}
+.yellow{
+    color: yellow;
+}
+.blue{
+    color: blue;
+}
+.purple{
+    color: purple;
+}
+.green{
+    color: green;
+}
+.pink{
+    color: pink;
+}
