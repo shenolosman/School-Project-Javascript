@@ -5,45 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Memory Game | Javascript</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-Your Score : <p id="score"></p> 
-    </header>
-    <main>
-       
-        <div class="row">
-            <div class="card color-hidden" onclick="cardClicked(event)"></div>
-            <div class="card color-hidden" onclick="cardClicked(event)"></div>
-            <div class="card color-hidden" onclick="cardClicked(event)"></div>
-            <div class="card color-hidden" onclick="cardClicked(event)"></div>
-        </div>
-        <div class="row">
-            <div class="card color-hidden" onclick="cardClicked(event)"></div>
-            <div class="card color-hidden" onclick="cardClicked(event)"></div>
-            <div class="card color-hidden" onclick="cardClicked(event)"></div>
-            <div class="card color-hidden" onclick="cardClicked(event)"></div>
-        </div>
-        <div class="row">
-            <div class="card color-hidden" onclick="cardClicked(event)"></div>
-            <div class="card color-hidden" onclick="cardClicked(event)"></div>
-            <div class="card color-hidden" onclick="cardClicked(event)"></div>
-            <div class="card color-hidden" onclick="cardClicked(event)"></div>
-        </div>
-        <div class="row">
-            <div class="card color-hidden" onclick="cardClicked(event)"></div>
-            <div class="card color-hidden" onclick="cardClicked(event)"></div>
-            <div class="card color-hidden" onclick="cardClicked(event)"></div>
-            <div class="card color-hidden" onclick="cardClicked(event)"></div>
-        </div> 
-
-    </main>
+    <div class="container">
+        <header>
+            <h1 class="title">Color Memory Game</h1>
+            <hr>
+            <br>
+        </header>
+        <main>
+            <section>
+                <p>
+                    <select name="level" id="level_menu" class="custom-select" style="width:200px;">
+                        <option value="choise">Choise a level</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </p>
+                <button class="btn-create btn">Start The Game</button>
+                <div class="content">
+                    <p></p>
+                </div>
+                <p>Your Score : <strong class="score-value"></strong></p>
+            </section>
+            <div class="game-board">
+            </div>
+        </main>
+    </div>
     <footer>
         <section>
-            Javascript inlämningsuppgift
+            Javascript inlämningsuppgift - 02.2022 - Shenol Osman
         </section>
     </footer>
     <script src="/script.js"></script>

@@ -1,53 +1,140 @@
-/* style codes
-*/
-
-.row{
-    text-align: center;
+* {
+  margin: 0px;
+  padding: 0px;
+  font-size: 20px;
+  box-sizing: border-box;
+  background-color: #f1f3d3;
+  color: #070606;
 }
-.card{
- display: inline-block;
- width: 200px;
- height: 200px;
- background-color: rgb(238, 238, 238);
- cursor: pointer;
+body {
+  font-family: "Nerko One", cursive;
+  text-align: center;
 }
-.card:hover{
-    box-shadow:inset 0px 0px 0px 1px black;
-    box-sizing: border-box;
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
-
-.card.done{
-    cursor:default;
+.title {
+  font-size: 30px;
 }
-.card.done:hover{
-    cursor: default;
-    box-shadow: none;
+.btn {
+  font-family: "Nerko One", cursive;
+  margin: 5px 5px;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 5px;
 }
-.orange{
-    background-color: orange;
+.game-board {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
 }
-.red{
-    background-color: red;
+.flip-card {
+  position: relative;
+  width: calc(100% / 4 - 20px);
+  margin: 10px;
+  background: transparent;
 }
-.cyan{
-    background-color:cyan;
+.flip-card::before {
+  content: "";
+  float: left;
+  padding-top: 100%;
 }
-.yellow{
-    background-color: yellow;
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  animation: expand 0.2s;
+  border-style: outset;
+  border-width: 5px;
+  border-radius: 10%;
 }
-.blue{
-    background-color: blue;
+.flip-card-inner:hover {
+  box-shadow: 0 0 30px rgb(126, 122, 122);
+  cursor: pointer;
 }
-.purple{
-    background-color: purple;
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10%;
 }
-.green{
-    background-color: green;
+.flip-card-front {
+  transform: rotateY(180deg);
+  background-size: cover;
+  background-position: center;
 }
-.pink{
-    background-color: pink;
+.flip-card-inner.animate {
+  transform: rotateY(180deg);
 }
-
-.color-hidden{
-    background-color: rgb(238, 238, 238);
+.flip-card-back {
+  background-color: rgb(143, 137, 137);
+}
+@keyframes expand {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.matched,
+.matched:hover {
+  opacity: 0.4;
+  box-shadow: none;
+  cursor: wait;
+}
+button {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  padding: 5px 15px;
+  font-size: 1rem;
+}
+button:hover {
+  background-color: white;
+  color: black;
+}
+.orange {
+  background-color: orange;
+}
+.red {
+  background-color: red;
+}
+.cyan {
+  background-color: cyan;
+}
+.yellow {
+  background-color: yellow;
+}
+.blue {
+  background-color: blue;
+}
+.purple {
+  background-color: purple;
+}
+.green {
+  background-color: green;
+}
+.pink {
+  background-color: pink;
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
 }
