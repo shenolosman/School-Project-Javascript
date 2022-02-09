@@ -1,8 +1,13 @@
+//glue-code
+import { TotalScore } from "./logic.js";
+const totalScore=new TotalScore();
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const gameBoard = document.querySelector(".game-board");
   const createButton = document.querySelector(".btn-create");
   const levelMenu = document.querySelector("#level_menu");
-
+  
   let selectedOption = levelMenu.value;
 
   let allColors = [
@@ -49,8 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let secondCard;
   let firstCardColor;
   let secondCardColor;
-  let scoreCounter = 0;
-
   function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * i);
@@ -59,9 +62,8 @@ document.addEventListener("DOMContentLoaded", function () {
       array[j] = temp;
     }
   }
-
+  let scoreCounter = 0;
   function createBoard() {
-    scoreCounter = 0;
     updateScore(scoreCounter);
     let pickedColors = [];
 
@@ -103,7 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       function handleClick(event) {
         if (this.classList.contains("matched")) {
-          console.log("Seems we found the card!.");
         } else {
           const numberOfOnCards = CardsOn();
           if (numberOfOnCards === 0) {
@@ -150,9 +151,9 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       firstCard.firstElementChild.classList.toggle("animate");
       secondCard.firstElementChild.classList.toggle("animate");
-      hasMatchedCards = false;
     }
   }
+  printHighScore();
 });
 
 function checkMatchedCards() {
@@ -163,8 +164,19 @@ function checkMatchedCards() {
 
   if (isAllOn) {
     document.querySelector(".content p").innerText = "You Win the Game!";
+    totalScore.uppdateHighScore();
   }
 }
 function updateScore(value) {
-  document.querySelector(".score-value").innerHTML = value;
+  document.querySelector(".score").innerHTML = value;
+  document.querySelector(".highscore").innerHTML=value;
+  if(totalScore.score>0 && totalScore.score===totalScore.highScore){
+    document.querySelector(".highscore").innerText=totalScore.score;
+    totalScore.saveHighScore();
+  }
 }
+function printHighScore(){
+  let printHighScore=totalScore.loadHighScore();
+  document.querySelector(".highscore").innerHTML=printHighScore;
+}
+
