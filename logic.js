@@ -22,7 +22,7 @@ let version = "1.0.0";
       localStorage.setItem("save", JSON.stringify(this.highscore));
     }
     loadHighScore() {
-      let loadScore = +localStorage.getItem("save");
+      let loadScore = localStorage.getItem("save");
       if (loadScore > 0) {
         this.highscore = loadScore;
         return this.highscore;
