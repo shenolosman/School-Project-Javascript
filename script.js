@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let scoreCounter = 0;
   function createBoard() {
     updateScore(scoreCounter);
+    printHighScore();
     let pickedColors = [];
 
     for (let i = 0; i < colors.length; i++) {
@@ -152,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
       secondCard.firstElementChild.classList.toggle("animate");
     }
   }
-  printHighScore();
+ 
 });
 
 function checkMatchedCards() {
