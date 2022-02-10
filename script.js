@@ -1,13 +1,12 @@
 //glue-code
 import { TotalScore } from "./logic.js";
-const totalScore=new TotalScore();
-
+const totalScore = new TotalScore();
 
 document.addEventListener("DOMContentLoaded", function () {
   const gameBoard = document.querySelector(".game-board");
   const createButton = document.querySelector(".btn-create");
   const levelMenu = document.querySelector("#level_menu");
-  
+
   let selectedOption = levelMenu.value;
 
   let allColors = [
@@ -169,14 +168,13 @@ function checkMatchedCards() {
 }
 function updateScore(value) {
   document.querySelector(".score").innerHTML = value;
-  document.querySelector(".highscore").innerHTML=value;
-  if(totalScore.score>0 && totalScore.score===totalScore.highScore){
-    document.querySelector(".highscore").innerText=totalScore.score;
+  document.querySelector(".highscore").innerHTML = value;
+  if (totalScore.score > 0 && totalScore.score === totalScore.highScore) {
+    document.querySelector(".highscore").innerText = totalScore.score;
     totalScore.saveHighScore();
   }
 }
-function printHighScore(){
-  let printHighScore=totalScore.loadHighScore();
-  document.querySelector(".highscore").innerHTML=printHighScore;
+function printHighScore() {
+  let printHighScore = totalScore.loadHighScore();
+  document.querySelector(".highscore").innerHTML = printHighScore;
 }
-

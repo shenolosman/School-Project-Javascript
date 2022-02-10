@@ -1,8 +1,14 @@
-//datastrukturen
+/**
+ * Version of the program
+ * @version 
+ */
 let version = "1.0.0";
 
 
-// programlogik 
+/**
+ * Saving scores to local storage
+ * @constructor
+ */
   export class TotalScore {
     constructor() {
       this.score = 0;
@@ -30,3 +36,4 @@ let version = "1.0.0";
       }
     }
   }
+  
