@@ -7,12 +7,10 @@ const createButton = document.querySelector(".btn-create");
 const levelMenu = document.querySelector("#level_menu");
 const scorePlayer = document.querySelector(".score");
 const scoreHighest = document.querySelector(".highscore");
-const youWin = document.querySelector(".content p");
+const youWinHtml = document.querySelector(".content p");
 
 let selectedOption = levelMenu.value;
 
-let scoreCounter;
-let highScoreCounter;
 let firstCard;
 let secondCard;
 let firstCardColor;
@@ -41,11 +39,11 @@ function menuChange() {
 }
 
 function createBoard() {
-  youWin.innerText = "";
-  scoreCounter = 0;
-  scorePlayer.textContent = scoreCounter + " points";
-  highScoreCounter = totalScore.score;
-  printHighScore();
+  youWinHtml.innerText = "";
+  totalScore.scoreCounter = 0;
+  scorePlayer.textContent = totalScore.scoreCounter + " points";
+  totalScore.highScoreCounter = totalScore.score;
+  totalScore.printHighScore();
   let pickedColors = [];
   for (let i = 0; i < memoryGame.colors.length; i++) {
     pickedColors.push(memoryGame.colors[i]);
@@ -126,14 +124,13 @@ function checkSameCards() {
     firstCard.classList.add("matched");
     secondCard.classList.add("matched");
 
-    highScoreCounter++;
-    scoreCounter++;
-    scorePlayer.textContent = scoreCounter + " points";
-    scoreHighest.textContent = highScoreCounter + " points";
+    totalScore.highScoreCounter++;
+    totalScore.scoreCounter++;
+    scorePlayer.textContent = totalScore.scoreCounter + " points";
+    scoreHighest.textContent = totalScore.highScoreCounter + " points";
     totalScore.uppdateHighScore();
     checkMatchedCards();
-
-    updateScore();
+    totalScore.updateScore();
   } else {
     firstCard.firstElementChild.classList.toggle("animate");
     secondCard.firstElementChild.classList.toggle("animate");
@@ -146,21 +143,8 @@ function checkMatchedCards() {
     return item.classList.contains("matched");
   });
   if (isAllOn) {
-    youWin.innerText = "You Win the Game!";
-    totalScore.score = highScoreCounter;
+    youWinHtml.innerText = "You Win the Game!";
+    totalScore.score = totalScore.highScoreCounter;
     totalScore.uppdateHighScore();
   }
-}
-
-function updateScore() {
-  if (totalScore.score > 0 && totalScore.score == totalScore.highscore) {
-    scoreHighest.textContent = totalScore.score + " points";
-    totalScore.saveHighScore();
-  }
-}
-
-function printHighScore() {
-  let printhighScore = totalScore.loadHighScore();
-  if (printhighScore != "undefined")
-    scoreHighest.textContent = printhighScore + " points";
 }
