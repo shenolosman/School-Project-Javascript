@@ -57,8 +57,6 @@
      this.score = 0;
      this.highscore = 0;
      this.loadHighScore();
-     this.updateScore();
-     this.printHighScore();
    }
    scoreCounter;
    highScoreCounter;
@@ -94,5 +92,4 @@
        document.querySelector(".highscore").textContent =
          printhighScore + " points";
    }
- }
- 
+ } 
