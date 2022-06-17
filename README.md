@@ -1,2 +1,3 @@
-# Javascript Inlämningsuppgift
-Repo att forka för inlämning i JavaScript kursen
+# Javascript 
+
+Color memory game with plain javascript. Score saves in local storages
